@@ -1,0 +1,12 @@
+#
+# .htaccess for the qr_redirect root directory
+#
+
+RewriteEngine On
+
+# Refer all incoming requests that do not include the cgi-bin subdirectory
+# to the cgi-bin/qr_redirect.pl script
+# Let robots.txt and favicon.ico requests through
+RewriteCond %{REQUEST_URI} !robots.txt$   
+RewriteCond %{REQUEST_URI} !favicon.ico$
+RewriteRule !cgi-bin/.* cgi-bin/qr_redirect.pl [L]
